@@ -31,7 +31,7 @@ jobs:
       - name: tf validate
         working-directory: ${{env.tf_working_directory}}
         run: |
-          terraform validate -input=false 
+          terraform validate
 
       - name: tf plan
         working-directory: ${{env.tf_working_directory}}
