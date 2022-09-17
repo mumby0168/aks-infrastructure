@@ -2,6 +2,7 @@ name: deploy
 
 env:
   tf_working_directory: ./deploy/terraform
+  TF_LOG: DEBUG
 
 on:
   push:
