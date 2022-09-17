@@ -22,15 +22,13 @@ jobs:
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: tf plan
         working-directory: ${{env.tf_working_directory}}
         run: |
-          terraform init \
-            -upgrade \
-            -backend-config=subscription_id=${{ secrets.ARM_SUBSCRIPTION_ID }} \
-            -backend-config=tenant_id=${{ secrets.ARM_TENANT_ID }} \
-            -backend-config=client_id=${{ secrets.ARM_CLIENT_ID }} \
-            -backend-config=client_secret=${{ secrets.ARM_CLIENT_SECRET }}
-
+          terraform init -upgrade
           terraform validate
           terraform plan
