@@ -42,6 +42,7 @@ jobs:
           terraform plan -input=false 
   
   apply:
+    needs: plan
     environment: apply
     runs-on: ubuntu-latest
 
