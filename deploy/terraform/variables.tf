@@ -8,7 +8,7 @@ variable "node_count" {
   default = 1
 }
 
-variable "client_secret" {
+variable "CLIENT_SECRET" {
   type      = string
   sensitive = true
 }
