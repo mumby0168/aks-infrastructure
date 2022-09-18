@@ -53,8 +53,8 @@ jobs:
         run: |
           terraform init -upgrade -input=false 
 
-      - name: tf plan
+      - name: tf destroy
         working-directory: ${{env.tf_working_directory}}
         timeout-minutes: 2
         run: |
-          terraform apply -input=false -destroy
+          terraform apply -input=false -auto-approve -destroy
