@@ -55,6 +55,5 @@ jobs:
 
       - name: tf destroy
         working-directory: ${{env.tf_working_directory}}
-        timeout-minutes: 2
         run: |
           terraform apply -input=false -auto-approve -destroy

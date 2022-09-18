@@ -1,8 +1,8 @@
 name: stop
 
 env:
-  cluster_name: test
-  resource_group: rg
+  cluster_name: mumby-aks
+  resource_group: rg-mumby-aks
   
 
 on:
