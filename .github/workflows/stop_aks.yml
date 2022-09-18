@@ -1,0 +1,28 @@
+name: stop
+
+env:
+  cluster_name: test
+  resource_group: rg
+  
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+  workflow_dispatch:
+
+jobs:
+  stop_aks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: azure/login@v1
+        name: Az Login
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Stop Cluster
+        run: |
+          az aks stop --name ${{ env.cluster_name }} --resource-group ${{ env.resource_group }}

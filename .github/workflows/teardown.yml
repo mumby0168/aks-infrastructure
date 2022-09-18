@@ -26,7 +26,7 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: tf init
-        working-directory: ${{env.tf_working_directory}}
+        working-directory: ${{ env.tf_working_directory }}
         run: |
           terraform init -upgrade -input=false 
 
